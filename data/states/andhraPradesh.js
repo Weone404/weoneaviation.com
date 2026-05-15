@@ -1,8 +1,14 @@
 export const andhraPradeshData = {
     seo: {
-        title: "Pilot Training Institute in Andhra Pradesh",
-        description:
-            "Explore pilot training in Andhra Pradesh with We One Aviation, including CPL, PPL, DGCA‑aligned courses, eligibility, and career opportunities for aspiring pilots ",
+        title: "Pilot Training & Online Aviation Classes in Andhra Pradesh",
+        description: "Explore pilot training & online aviation classes in Andhra Pradesh with We One Aviation. CPL, PPL, DGCA online courses, eligibility, and career opportunities.",
+        keywords: [
+            "pilot training in Andhra Pradesh",
+            "online aviation classes in Andhra Pradesh",
+            "online aviation course in Andhra Pradesh",
+            "DGCA online classes in Andhra Pradesh",
+            "aviation ground classes online Andhra Pradesh",
+        ],
     },
     hero: {
         title: "Pilot Training Institute in Andhra Pradesh - 2026",

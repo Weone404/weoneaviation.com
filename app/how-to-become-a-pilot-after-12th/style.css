@@ -1,0 +1,602 @@
+/* =====================================
+ * 1. CSS VARIABLES (Custom Properties)
+ * ===================================== */
+:root {
+    /* Colors */
+    --color-primary: #0b5ed7;          /* Blue — Main Accent */
+    --color-primary-dark: #0a4fb5;     /* Darker Blue — Hover State */
+    --color-primary-soft: rgba(11, 94, 215, 0.07);  /* Light Blue Tint */
+    --color-primary-border: rgba(11, 94, 215, 0.15); /* Subtle Blue Border */
+    --color-text-dark: #2c3e50;        /* Primary Dark Text */
+    --color-text-light: #616e7a;       /* Secondary Gray Text */
+    --color-muted: #6c757d;            /* Muted / Note Text */
+    --color-background-light: #ffffff; /* White background */
+    --color-background-soft: #f4f8f9;  /* Light Gray/Blue background */
+    --color-highlight-pill: rgba(11, 94, 215, 0.1); /* Badge/Label background */
+
+    /* Typography */
+    --font-family-primary: 'Arial', sans-serif;
+    --font-size-base: 1rem;
+    --font-size-sm: 0.9rem;
+    --font-size-xs: 0.78rem;
+
+    /* Spacing */
+    --spacing-xs: 8px;
+    --spacing-sm: 15px;
+    --spacing-md: 30px;
+    --spacing-lg: 60px;
+
+    /* Border Radius & Shadow */
+    --border-radius: 8px;
+    --border-radius-lg: 15px;
+    --shadow-subtle: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-medium: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+
+/* =====================================
+ * 2. GLOBAL & UTILITY STYLES
+ * ===================================== */
+.pilot-page {
+    font-family: var(--font-family-primary);
+    line-height: 1.6;
+    color: var(--color-text-light);
+    background-color: var(--color-background-light);
+    margin: 0;
+    padding: 0;
+}
+
+.pilot-page h1,
+.pilot-page h2 {
+    color: var(--color-text-dark);
+}
+
+.pilot-page h3 {
+    color: var(--color-text-dark);
+    font-size: 1.1rem;
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-xs);
+}
+
+/* Shared Button Styles */
+.btn {
+    padding: 12px 25px;
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-background-light);
+    box-shadow: 0 4px 10px rgba(11, 94, 215, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-dark);
+    box-shadow: 0 6px 15px rgba(11, 94, 215, 0.4);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-primary);
+    color: var(--color-background-light);
+}
+
+/* Highlight / utility */
+.highlight {
+    color: var(--color-primary);
+}
+
+.label-highlight {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.salary-highlight {
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+.pilot-link {
+    color: var(--color-primary);
+    text-decoration: underline;
+}
+
+.pilot-note {
+    color: var(--color-muted);
+    font-size: var(--font-size-xs);
+    margin-top: var(--spacing-xs);
+}
+
+
+/* =====================================
+ * 3. HERO SECTION
+ * ===================================== */
+.pilot-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-lg);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-lg) var(--spacing-sm);
+}
+
+.pilot-hero-inner {
+    flex: 1;
+    max-width: 55%;
+}
+
+.pilot-subject-label {
+    display: inline-block;
+    background: var(--color-highlight-pill);
+    color: var(--color-primary);
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-bottom: var(--spacing-xs);
+}
+
+.pilot-hero-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin: 0 0 var(--spacing-sm);
+    color: var(--color-text-dark);
+}
+
+.pilot-hero-subtitle {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.6;
+}
+
+.pilot-hero-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 14px 0;
+}
+
+.pilot-hero-image {
+    flex: 1;
+    max-width: 45%;
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-lg);
+    object-fit: cover;
+    box-shadow: var(--shadow-medium);
+}
+
+/* Stats Row */
+.pilot-stats {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+    padding-top: var(--spacing-sm);
+    border-top: 1px solid var(--color-primary-border);
+}
+
+.pilot-stat {
+    display: flex;
+    flex-direction: column;
+}
+
+.pilot-stat strong {
+    font-size: 1.3rem;
+    color: var(--color-primary);
+    line-height: 1.1;
+}
+
+.pilot-stat span {
+    font-size: 0.72rem;
+    color: var(--color-muted);
+    margin-top: 1px;
+}
+
+
+/* =====================================
+ * 4. BADGE STRIP
+ * ===================================== */
+.pilot-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    max-width: 1200px;
+    margin: 0 auto var(--spacing-md);
+    padding: 0 var(--spacing-sm);
+}
+
+.pilot-badge {
+    background: var(--color-highlight-pill);
+    color: var(--color-primary);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 20px;
+    border: 1px solid var(--color-primary-border);
+    white-space: nowrap;
+}
+
+
+/* =====================================
+ * 5. INTRO & TOC
+ * ===================================== */
+.pilot-intro {
+    max-width: 1200px;
+    margin: 0 auto var(--spacing-md);
+    padding: var(--spacing-md) var(--spacing-sm);
+    background-color: var(--color-background-soft);
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-light);
+    line-height: 1.7;
+}
+
+.pilot-intro p {
+    margin: 0 0 var(--spacing-sm);
+}
+
+.pilot-intro p:last-child {
+    margin-bottom: 0;
+}
+
+.pilot-toc {
+    max-width: 1200px;
+    margin: 0 auto var(--spacing-md);
+    padding: var(--spacing-md);
+    background-color: var(--color-background-soft);
+    border-left: 4px solid var(--color-primary);
+    border-radius: var(--border-radius);
+}
+
+.pilot-toc h2 {
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0 var(--spacing-xs);
+    color: var(--color-primary);
+}
+
+.pilot-toc ol {
+    margin: 0;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.pilot-toc li {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-light);
+}
+
+
+/* =====================================
+ * 6. CONTENT SECTIONS
+ * ===================================== */
+.pilot-section {
+    max-width: 1200px;
+    margin: 0 auto var(--spacing-md);
+    padding: var(--spacing-md) var(--spacing-sm);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.pilot-section h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-text-dark);
+}
+
+.pilot-section p {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.7;
+}
+
+
+/* =====================================
+ * 7. MODULE CARDS (Steps / IAF Routes)
+ * ===================================== */
+.pilot-modules {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.pilot-module {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 16px;
+    background: var(--color-primary-soft);
+    border: 1px solid var(--color-primary-border);
+    border-radius: var(--border-radius);
+    transition: box-shadow 0.2s ease;
+}
+
+.pilot-module:hover {
+    box-shadow: var(--shadow-subtle);
+}
+
+.pilot-module-num {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: rgba(11, 94, 215, 0.2);
+    min-width: 36px;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.pilot-module strong {
+    display: block;
+    color: var(--color-primary-dark);
+    font-size: var(--font-size-sm);
+    margin-bottom: 4px;
+}
+
+.pilot-module p {
+    margin: 2px 0;
+    color: var(--color-muted);
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+
+/* =====================================
+ * 8. ICON LIST
+ * ===================================== */
+.pilot-icon-list {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.pilot-icon-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 12px;
+    background: var(--color-primary-soft);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-primary-border);
+}
+
+.pilot-icon-list li > span {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.pilot-icon-list li > div {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-dark);
+    line-height: 1.55;
+}
+
+
+/* =====================================
+ * 9. CHECKLIST
+ * ===================================== */
+.pilot-checklist {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.pilot-checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: var(--font-size-sm);
+    color: var(--color-text-dark);
+    line-height: 1.55;
+    padding: 10px 12px;
+    background: var(--color-primary-soft);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-primary-border);
+}
+
+.pilot-checklist li::before {
+    content: "✓";
+    color: var(--color-primary);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+
+/* =====================================
+ * 10. TABLE
+ * ===================================== */
+.pilot-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: var(--spacing-sm) 0;
+    font-size: var(--font-size-sm);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-subtle);
+}
+
+.pilot-table thead tr {
+    background-color: var(--color-primary);
+    color: var(--color-background-light);
+}
+
+.pilot-table th,
+.pilot-table td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.pilot-table tbody tr:nth-child(even) {
+    background-color: var(--color-background-soft);
+}
+
+.pilot-table tbody tr:hover {
+    background-color: var(--color-highlight-pill);
+}
+
+
+/* =====================================
+ * 11. CTA BLOCK
+ * ===================================== */
+.pilot-cta {
+    margin-top: var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+}
+
+
+/* =====================================
+ * 12. FOOTER
+ * ===================================== */
+.pilot-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--spacing-md);
+    max-width: 1200px;
+    margin: var(--spacing-md) auto 0;
+    padding: var(--spacing-md) var(--spacing-sm);
+    background-color: var(--color-background-soft);
+    border-top: 2px solid var(--color-primary-border);
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.pilot-footer h4 {
+    color: var(--color-text-dark);
+    font-size: 0.95rem;
+    margin: 0 0 var(--spacing-xs);
+}
+
+.pilot-footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.pilot-footer-links li {
+    font-size: var(--font-size-sm);
+    color: var(--color-primary);
+    cursor: pointer;
+}
+
+.pilot-footer-links li:hover {
+    text-decoration: underline;
+}
+
+.pilot-footer-right {
+    max-width: 380px;
+}
+
+.pilot-footer-right p {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-light);
+    line-height: 1.6;
+}
+
+
+/* =====================================
+ * 13. RESPONSIVE DESIGN
+ * ===================================== */
+@media (max-width: 992px) {
+    .pilot-hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .pilot-hero-inner {
+        max-width: 100%;
+    }
+
+    .pilot-hero-image {
+        max-width: 100%;
+    }
+
+    .pilot-hero-actions {
+        justify-content: center;
+    }
+
+    .pilot-stats {
+        justify-content: center;
+    }
+
+    .pilot-footer {
+        flex-direction: column;
+    }
+
+    .pilot-footer-right {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .pilot-hero {
+        padding: var(--spacing-md) var(--spacing-sm);
+    }
+
+    .pilot-hero-title {
+        font-size: 1.7rem;
+    }
+
+    .pilot-hero-actions {
+        flex-direction: column;
+    }
+
+    .pilot-stats {
+        gap: 14px;
+    }
+
+    .pilot-badges {
+        gap: 6px;
+    }
+
+    .pilot-section h2 {
+        font-size: 1.3rem;
+    }
+
+    .pilot-table th,
+    .pilot-table td {
+        padding: 8px 10px;
+        font-size: 0.8rem;
+    }
+
+    .pilot-cta {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

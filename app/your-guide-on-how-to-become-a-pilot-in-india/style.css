@@ -1,0 +1,569 @@
+/* =====================================
+ * 1. CSS VARIABLES (Custom Properties)
+ * ===================================== */
+:root {
+    /* Colors */
+    --color-primary: #0b5ed7;                        /* Blue — Main Accent */
+    --color-primary-dark: #0a4fb5;                   /* Darker Blue — Hover */
+    --color-primary-soft: rgba(11, 94, 215, 0.07);   /* Light Blue Tint */
+    --color-primary-border: rgba(11, 94, 215, 0.15); /* Subtle Blue Border */
+    --color-text-dark: #2c3e50;                      /* Primary Dark Text */
+    --color-text-light: #616e7a;                     /* Secondary Gray Text */
+    --color-muted: #6c757d;                          /* Muted / Note Text */
+    --color-background-light: #ffffff;               /* White Background */
+    --color-background-soft: #f4f8f9;                /* Light Gray/Blue Background */
+    --color-highlight-pill: rgba(11, 94, 215, 0.1);  /* Badge/Label Background */
+
+    /* Typography */
+    --font-family-primary: 'Arial', sans-serif;
+    --font-size-base: 1rem;
+    --font-size-sm: 0.9rem;
+    --font-size-xs: 0.78rem;
+
+    /* Spacing */
+    --spacing-xs: 8px;
+    --spacing-sm: 15px;
+    --spacing-md: 30px;
+    --spacing-lg: 60px;
+
+    /* Border Radius & Shadow */
+    --border-radius: 8px;
+    --border-radius-lg: 15px;
+    --shadow-subtle: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-medium: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+
+/* =====================================
+ * 2. GLOBAL & UTILITY STYLES
+ * ===================================== */
+.guide-page {
+    font-family: var(--font-family-primary);
+    line-height: 1.6;
+    color: var(--color-text-light);
+    background-color: var(--color-background-light);
+    margin: 0;
+    padding: 0;
+}
+
+.guide-page h1,
+.guide-page h2 {
+    color: var(--color-text-dark);
+}
+
+.guide-page h3 {
+    color: var(--color-text-dark);
+    font-size: 1.1rem;
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-xs);
+}
+
+/* Shared Button Styles */
+.btn {
+    padding: 12px 25px;
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-background-light);
+    box-shadow: 0 4px 10px rgba(11, 94, 215, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-dark);
+    box-shadow: 0 6px 15px rgba(11, 94, 215, 0.4);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-primary);
+    color: var(--color-background-light);
+}
+
+/* Utility */
+.highlight {
+    color: var(--color-primary);
+}
+
+.guide-note {
+    color: var(--color-muted);
+    font-size: var(--font-size-xs);
+    margin-top: var(--spacing-xs);
+}
+
+
+/* =====================================
+ * 3. HERO SECTION
+ * ===================================== */
+.guide-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-lg);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-lg) var(--spacing-sm);
+}
+
+.guide-hero-inner {
+    flex: 1;
+    max-width: 55%;
+}
+
+.guide-subject-label {
+    display: inline-block;
+    background: var(--color-highlight-pill);
+    color: var(--color-primary);
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-bottom: var(--spacing-xs);
+}
+
+.guide-hero-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin: 0 0 var(--spacing-sm);
+    color: var(--color-text-dark);
+}
+
+.guide-hero-subtitle {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.6;
+}
+
+.guide-hero-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 14px 0;
+}
+
+.guide-hero-image {
+    flex: 1;
+    max-width: 45%;
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-lg);
+    object-fit: cover;
+    box-shadow: var(--shadow-medium);
+}
+
+/* Stats Row */
+.guide-stats {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+    padding-top: var(--spacing-sm);
+    border-top: 1px solid var(--color-primary-border);
+}
+
+.guide-stat {
+    display: flex;
+    flex-direction: column;
+}
+
+.guide-stat strong {
+    font-size: 1.3rem;
+    color: var(--color-primary);
+    line-height: 1.1;
+}
+
+.guide-stat span {
+    font-size: 0.72rem;
+    color: var(--color-muted);
+    margin-top: 1px;
+}
+
+
+/* =====================================
+ * 4. BADGE STRIP
+ * ===================================== */
+.guide-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    max-width: 1200px;
+    margin: 0 auto var(--spacing-md);
+    padding: 0 var(--spacing-sm);
+}
+
+.guide-badge {
+    background: var(--color-highlight-pill);
+    color: var(--color-primary);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 20px;
+    border: 1px solid var(--color-primary-border);
+    white-space: nowrap;
+}
+
+
+/* =====================================
+ * 5. INTRO & TOC
+ * ===================================== */
+.guide-intro {
+    max-width: 1200px;
+    margin: 0 auto var(--spacing-md);
+    padding: var(--spacing-md) var(--spacing-sm);
+    background-color: var(--color-background-soft);
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-light);
+    line-height: 1.7;
+}
+
+.guide-intro p {
+    margin: 0 0 var(--spacing-sm);
+}
+
+.guide-intro p:last-child {
+    margin-bottom: 0;
+}
+
+.guide-toc {
+    max-width: 1200px;
+    margin: 0 auto var(--spacing-md);
+    padding: var(--spacing-md);
+    background-color: var(--color-background-soft);
+    border-left: 4px solid var(--color-primary);
+    border-radius: var(--border-radius);
+}
+
+.guide-toc h2 {
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0 var(--spacing-xs);
+    color: var(--color-primary);
+}
+
+.guide-toc ol {
+    margin: 0;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.guide-toc li {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-light);
+}
+
+
+/* =====================================
+ * 6. CONTENT SECTIONS
+ * ===================================== */
+.guide-section {
+    max-width: 1200px;
+    margin: 0 auto var(--spacing-md);
+    padding: var(--spacing-md) var(--spacing-sm);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.guide-section h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-text-dark);
+}
+
+.guide-section p {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.7;
+}
+
+/* Step block inside a section */
+.guide-step-block {
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 1px dashed var(--color-primary-border);
+}
+
+.guide-step-block:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.guide-step-block h2 {
+    font-size: 1.3rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+
+/* =====================================
+ * 7. MODULE CARDS (Steps / Courses)
+ * ===================================== */
+.guide-modules {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.guide-module {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 16px;
+    background: var(--color-primary-soft);
+    border: 1px solid var(--color-primary-border);
+    border-radius: var(--border-radius);
+    transition: box-shadow 0.2s ease;
+}
+
+.guide-module:hover {
+    box-shadow: var(--shadow-subtle);
+}
+
+.guide-module-num {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: rgba(11, 94, 215, 0.2);
+    min-width: 36px;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.guide-module strong {
+    display: block;
+    color: var(--color-primary-dark);
+    font-size: var(--font-size-sm);
+    margin-bottom: 4px;
+}
+
+.guide-module p {
+    margin: 2px 0;
+    color: var(--color-muted);
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+
+/* =====================================
+ * 8. ICON LIST
+ * ===================================== */
+.guide-icon-list {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.guide-icon-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 12px;
+    background: var(--color-primary-soft);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-primary-border);
+}
+
+.guide-icon-list li > span {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.guide-icon-list li > div {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-dark);
+    line-height: 1.55;
+}
+
+
+/* =====================================
+ * 9. CHECKLIST
+ * ===================================== */
+.guide-checklist {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.guide-checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: var(--font-size-sm);
+    color: var(--color-text-dark);
+    line-height: 1.55;
+    padding: 10px 12px;
+    background: var(--color-primary-soft);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-primary-border);
+}
+
+.guide-checklist li::before {
+    content: "✓";
+    color: var(--color-primary);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+
+/* =====================================
+ * 10. CTA BLOCK
+ * ===================================== */
+.guide-cta {
+    margin-top: var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+}
+
+
+/* =====================================
+ * 11. FOOTER
+ * ===================================== */
+.guide-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--spacing-md);
+    max-width: 1200px;
+    margin: var(--spacing-md) auto 0;
+    padding: var(--spacing-md) var(--spacing-sm);
+    background-color: var(--color-background-soft);
+    border-top: 2px solid var(--color-primary-border);
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.guide-footer h4 {
+    color: var(--color-text-dark);
+    font-size: 0.95rem;
+    margin: 0 0 var(--spacing-xs);
+}
+
+.guide-footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.guide-footer-links li {
+    font-size: var(--font-size-sm);
+    color: var(--color-primary);
+    cursor: pointer;
+}
+
+.guide-footer-links li:hover {
+    text-decoration: underline;
+}
+
+.guide-footer-right {
+    max-width: 380px;
+}
+
+.guide-footer-right p {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-light);
+    line-height: 1.6;
+}
+
+
+/* =====================================
+ * 12. RESPONSIVE DESIGN
+ * ===================================== */
+@media (max-width: 992px) {
+    .guide-hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .guide-hero-inner {
+        max-width: 100%;
+    }
+
+    .guide-hero-image {
+        max-width: 100%;
+    }
+
+    .guide-hero-actions {
+        justify-content: center;
+    }
+
+    .guide-stats {
+        justify-content: center;
+    }
+
+    .guide-footer {
+        flex-direction: column;
+    }
+
+    .guide-footer-right {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .guide-hero {
+        padding: var(--spacing-md) var(--spacing-sm);
+    }
+
+    .guide-hero-title {
+        font-size: 1.7rem;
+    }
+
+    .guide-hero-actions {
+        flex-direction: column;
+    }
+
+    .guide-stats {
+        gap: 14px;
+    }
+
+    .guide-badges {
+        gap: 6px;
+    }
+
+    .guide-section h2 {
+        font-size: 1.3rem;
+    }
+
+    .guide-step-block h2 {
+        font-size: 1.1rem;
+    }
+
+    .guide-cta {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
